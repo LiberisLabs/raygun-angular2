@@ -10,7 +10,6 @@
     },
     "files": [
         "index.ts",
-        "typings/browser.d.ts",
-        "window.d.ts"
+        "typings/browser.d.ts"
     ]
 }
