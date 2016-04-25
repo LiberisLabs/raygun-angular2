@@ -1,11 +1,12 @@
 {
   "name": "raygun-angular2",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "Raygun integration for angular 2",
   "main": "index.js",
   "scripts": {
     "prebuild": "typings install",
-    "build": "tsc",
+    "build": "tsc --pretty",
+    "tdd": "tsc -w --pretty",
     "prepublish": "npm run build",
     "test": "mocha"
   },
@@ -28,6 +29,7 @@
   "devDependencies": {
     "angular2": "^2.0.0-beta.15",
     "es6-shim": "^0.35.0",
+    "raygun4js": "^2.3.1",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
     "typescript": "^1.8.10",
@@ -37,7 +39,5 @@
   "peerDependencies": {
     "angular2": "^2.0.0-beta.15"
   },
-  "dependencies": {
-    "raygun": "^0.8.5"
-  }
+  "dependencies": {}
 }

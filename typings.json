@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "raygun": "file:raygun.d.ts"
-  },
   "ambientDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
   }
