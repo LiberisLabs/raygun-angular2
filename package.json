@@ -39,5 +39,7 @@
   "peerDependencies": {
     "angular2": "^2.0.0-beta.15"
   },
-  "dependencies": {}
+  "dependencies": {
+    "stack-trace": "0.0.9"
+  }
 }
