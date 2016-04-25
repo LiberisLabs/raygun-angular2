@@ -1,8 +1,9 @@
 {
   "name": "raygun-angular2",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.7",
   "description": "Raygun integration for angular 2",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "prebuild": "typings install",
     "build": "tsc --pretty",
@@ -39,5 +40,7 @@
   "peerDependencies": {
     "angular2": "^2.0.0-beta.15"
   },
-  "dependencies": {}
+  "dependencies": {
+    "stack-trace": "0.0.9"
+  }
 }

@@ -4,7 +4,9 @@ import {ErrorReport} from './raygun-angular2/ErrorReport';
 
 @Injectable()
 export class RaygunExceptionHandler extends ExceptionHandler {
-    static apiKey = 'AqvoYX11eWuVi0Te4cXswA==';
+    static apiKey: string;
+    static version: string;
+    
     errorReport: ErrorReport;
     
     constructor(private http: Http) {
