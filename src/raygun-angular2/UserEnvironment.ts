@@ -1,12 +1,17 @@
+import {ExtendedNavigator, ExtendedScreen} from './window';
+
 export class UserEnvironment {
+		private _navigator = navigator as ExtendedNavigator;
+		private _screen = screen as ExtendedScreen;
+		
     // The number of processors in the machine
-    "processorCount" = 'hardwareConcurrency' in navigator ? navigator.hardwareConcurrency : 0;
+    "processorCount" = 'hardwareConcurrency' in this._navigator ? this._navigator.hardwareConcurrency : 0;
     // The version of the operating system this app is running on
-    "osVersion" = 'oscpu' in navigator ? navigator.oscpu : '';
+    "osVersion" = 'oscpu' in this._navigator ? this._navigator.oscpu : '';
     // The width of the window
-    "windowBoundsWidth" = screen.width;
+    "windowBoundsWidth" = this._screen.width;
     // The height of the window
-    "windowBoundsHeight" = screen.height;
+    "windowBoundsHeight" = this._screen.height;
     // The width of the browser window
     "browser-Width" = window.outerWidth;
     // The height of the browser window
@@ -18,9 +23,9 @@ export class UserEnvironment {
     // The scale of the screen
     "resolutionScale": number;
     // Color depth of the screen
-    "color-Depth" = screen.colorDepth;
+    "color-Depth" = this._screen.colorDepth;
     // The orientation of the screen
-    "currentOrientation" = screen.orientation.type || screen.msOrientation || '';
+    "currentOrientation" = this._screen.orientation.type || this._screen.msOrientation || '';
     // The type of CPU in the machine
     "cpu": string;
     "packageVersion": string;
@@ -43,16 +48,16 @@ export class UserEnvironment {
     // Name of the device (phone name for instance)
     "deviceName": string;
     // Locale setting of the system
-    "locale" = navigator.language;
+    "locale" = this._navigator.language;
     // Number of hours offset from UTC
     "utcOffset" = new Date().getTimezoneOffset() / 60;
     // The browser manufacturer
-    "browser" = navigator.vendor;
+    "browser" = this._navigator.vendor;
     // The browser name
     "browserName": string;
     // The full user agent string
-    "browser-Version" = navigator.userAgent;
+    "browser-Version" = this._navigator.userAgent;
     // OS Name
-    "platform" = navigator.platform;
+    "platform" = this._navigator.platform;
 		
 }

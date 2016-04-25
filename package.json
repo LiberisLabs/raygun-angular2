@@ -1,6 +1,6 @@
 {
   "name": "raygun-angular2",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "Raygun integration for angular 2",
   "main": "index.js",
   "typings": "index.d.ts",
