@@ -46,8 +46,4 @@ export class BrowserDetector {
     
     return browser;
   }
-  
-  getVendor() {
-    
-  }
 }
