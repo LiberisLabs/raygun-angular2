@@ -16,4 +16,21 @@
     - npm test
     
   build: off
-
+# Configuration for feature branches
+-
+  branches:
+    except:
+      - master
+      
+  version: 0.0.0-{branch}-{build}
+    
+  install:
+    - ps: Install-Product node 4
+    - npm install
+    
+  test_script:
+    - node --version
+    - npm --version
+    - npm test
+    
+  build: off
