@@ -2,10 +2,10 @@ import {ExtendedNavigator, ExtendedScreen} from './window';
 import {BrowserDetector} from '../utils/BrowserDetector';
 
 export class UserEnvironment {
-		private _navigator = navigator as ExtendedNavigator;
-		private _screen = screen as ExtendedScreen;
+    private _navigator = navigator as ExtendedNavigator;
+    private _screen = screen as ExtendedScreen;
     private _browserDetector = new BrowserDetector();
-		
+
     // The number of processors in the machine
     "processorCount" = 'hardwareConcurrency' in this._navigator ? this._navigator.hardwareConcurrency : 0;
     // The version of the operating system this app is running on
@@ -46,7 +46,7 @@ export class UserEnvironment {
     // Available Virtual Memory in MB
     "availableVirtualMemory": number;
     // Free disk space in GB
-    "diskSpaceFree": Array<Number> ;
+    "diskSpaceFree": Array < Number > ;
     // Name of the device (phone name for instance)
     "deviceName": string;
     // Locale setting of the system
@@ -61,5 +61,5 @@ export class UserEnvironment {
     "browser-Version" = this._navigator.userAgent;
     // OS Name
     "platform" = this._navigator.platform;
-		
+
 }
