@@ -10,3 +10,22 @@ export interface ExtendedScreen extends Screen {
     type: string;
   }
 }
+
+export interface ExtendedWindow extends Window {
+  opr: {
+    addons: any;
+  }
+  
+  opera: any;
+  InstallTrigger: any;
+  HTMLElement: HTMLElement;
+  StyleMedia: any;
+  chrome: {
+    webstore: any;
+  }
+  CSS: any;
+}
+
+export interface ExtendedDocument extends Document {
+  documentMode: any;
+}

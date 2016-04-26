@@ -1,8 +1,10 @@
 import {ExtendedNavigator, ExtendedScreen} from './window';
+import {BrowserDetector} from '../utils/BrowserDetector';
 
 export class UserEnvironment {
 		private _navigator = navigator as ExtendedNavigator;
 		private _screen = screen as ExtendedScreen;
+    private _browserDetector = new BrowserDetector();
 		
     // The number of processors in the machine
     "processorCount" = 'hardwareConcurrency' in this._navigator ? this._navigator.hardwareConcurrency : 0;
@@ -54,7 +56,7 @@ export class UserEnvironment {
     // The browser manufacturer
     "browser" = this._navigator.vendor;
     // The browser name
-    "browserName": string;
+    "browserName" = this._browserDetector.getCurrentBrowser();
     // The full user agent string
     "browser-Version" = this._navigator.userAgent;
     // OS Name
