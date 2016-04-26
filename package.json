@@ -1,0 +1,46 @@
+{
+  "name": "raygun-angular2",
+  "version": "1.0.0-beta.6",
+  "description": "Raygun integration for angular 2",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "prebuild": "typings install",
+    "build": "tsc --pretty",
+    "tdd": "tsc -w --pretty",
+    "prepublish": "npm run build",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiberisLabs/raygun-angular2.git"
+  },
+  "keywords": [
+    "angular2",
+    "raygun",
+    "exception",
+    "handling"
+  ],
+  "author": "Liberis Labs <devteam@liberis.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LiberisLabs/raygun-angular2/issues"
+  },
+  "homepage": "https://github.com/LiberisLabs/raygun-angular2#readme",
+  "devDependencies": {
+    "angular2": "^2.0.0-beta.15",
+    "es6-shim": "^0.35.0",
+    "raygun4js": "^2.3.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "zone.js": "0.6.12"
+  },
+  "peerDependencies": {
+    "angular2": "^2.0.0-beta.15"
+  },
+  "dependencies": {
+    "stack-trace": "0.0.9"
+  }
+}

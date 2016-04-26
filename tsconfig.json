@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "declaration": true
+    },
+    "files": [
+        "index.ts",
+        "typings/browser.d.ts"
+    ]
+}
