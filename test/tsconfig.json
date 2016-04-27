@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "declaration": true
+    },
+    "files": [
+        "RaygunExceptionHandler.ts",
+        "ErrorDetails.ts",
+        "ErrorReport.ts",
+        "RaygunError.ts",
+        "Request.ts",
+        "UserEnvironment.ts",
+        "../typings/main.d.ts"
+    ]
+}
