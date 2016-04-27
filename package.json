@@ -7,9 +7,10 @@
   "scripts": {
     "prebuild": "typings install",
     "build": "tsc --pretty",
+    "build:test": "cd test && tsc --pretty",
     "tdd": "tsc -w --pretty",
     "prepublish": "npm run build",
-    "pretest": "npm run build",
+    "pretest": "npm run build && npm run build:test",
     "test": "mocha"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
     "sinon": "^1.17.3",
+    "typemoq": "0.0.6",
     "typescript": "^1.8.10",
     "typings": "^0.8.1",
     "zone.js": "0.6.12"

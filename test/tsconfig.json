@@ -10,7 +10,12 @@
         "declaration": true
     },
     "files": [
-        "test/RaygunExceptionHandler.ts",
-        "typings/main.d.ts"
+        "RaygunExceptionHandler.ts",
+        "ErrorDetails.ts",
+        "ErrorReport.ts",
+        "RaygunError.ts",
+        "Request.ts",
+        "UserEnvironment.ts",
+        "../typings/main.d.ts"
     ]
 }

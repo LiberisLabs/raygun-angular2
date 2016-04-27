@@ -1,31 +1,29 @@
 export interface ExtendedNavigator extends Navigator {
-  hardwareConcurrency: number;
-  oscpu: string;
-  platform: string;
-  vendor: string;
+  hardwareConcurrency?: number;
+  oscpu?: string;
 }
 
 export interface ExtendedScreen extends Screen {
-  orientation: {
-    type: string;
+  orientation?: {
+    type?: string;
   }
 }
 
 export interface ExtendedWindow extends Window {
-  opr: {
-    addons: any;
+  opr?: {
+    addons?: any;
   }
   
-  opera: any;
-  InstallTrigger: any;
-  HTMLElement: HTMLElement;
-  StyleMedia: any;
-  chrome: {
-    webstore: any;
+  opera?: any;
+  InstallTrigger?: any;
+  HTMLElement?: HTMLElement;
+  StyleMedia?: any;
+  chrome?: {
+    webstore?: any;
   }
-  CSS: any;
+  CSS?: any;
 }
 
 export interface ExtendedDocument extends Document {
-  documentMode: any;
+  documentMode?: any;
 }

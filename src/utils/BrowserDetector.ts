@@ -2,8 +2,8 @@ import {ExtendedWindow, ExtendedDocument} from '../raygun-angular2/window';
 
 
 export class BrowserDetector {
-  private _window = <ExtendedWindow>window;
-  private _document = <ExtendedDocument>document;
+  private _window = <ExtendedWindow>(window || {});
+  private _document = <ExtendedDocument>(document || {});
   
   private _results = {
     isOpera: false,

@@ -10,7 +10,7 @@ export class ErrorDetails {
   groupingKey: string;
   version = RaygunExceptionHandler.version;
   
-  client: {
+  client = {
     name: 'Raygun for Angular2',
     version: '1.0.0',
     clientUrl: 'https://github.com/LiberisLabs/raygun-angular2'
@@ -24,9 +24,13 @@ export class ErrorDetails {
   user: User;
   
   constructor(error: WrappedException) {
-    this.groupingKey = btoa(error.originalException.message);
+    this.groupingKey = this.generateGroupingKey(error.originalException.message);
     this.error = new RaygunError(error);
     this.environment = new UserEnvironment();
     this.request = new Request();
+  }
+  
+  generateGroupingKey(input: string) {
+    return btoa(input);
   }
 }
