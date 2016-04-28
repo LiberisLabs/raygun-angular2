@@ -20,7 +20,14 @@ export class RaygunExceptionHandler extends ExceptionHandler {
         
         this.errorReport = new ErrorReport(error);
         
-        this.http.post(`https://api.raygun.io/entries?apikey=${RaygunExceptionHandler.apiKey}`, JSON.stringify(this.errorReport))
-            .subscribe(console.warn.bind, console.warn.bind);
+        this.http.post(`https://api.raygun.io/entries?apikey=${RaygunExceptionHandler.apiKey}`, JSON.stringify(this.errorReport, (key, val) => {
+           if (key.indexOf('_') === 0) {
+               return undefined;
+           }
+           
+           return val;
+        })).subscribe();
+        
+        throw error.originalException;
     }
 }
