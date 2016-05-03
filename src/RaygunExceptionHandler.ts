@@ -17,6 +17,7 @@ export class RaygunExceptionHandler extends ExceptionHandler {
         // var headers = new Headers({
         //     'X-ApiKey': RaygunExceptionHandler.apiKey
         // });
+        var originalException = error.originalException || error;
         
         this.errorReport = new ErrorReport(error);
         
@@ -28,6 +29,6 @@ export class RaygunExceptionHandler extends ExceptionHandler {
            return val;
         })).subscribe();
         
-        throw error.originalException;
+        throw originalException;
     }
 }
