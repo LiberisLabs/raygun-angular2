@@ -10,7 +10,7 @@ export class RaygunError {
   stackTrace: Array<RaygunStackTrace>;
   
   constructor(err: WrappedException) {
-    var trace = StackTrace.parse(err.originalException);
+    var trace = StackTrace.parse(err.originalException || err);
 
     this.className = <string>err.originalException.name;
     this.message = <string>err.originalException.message;
