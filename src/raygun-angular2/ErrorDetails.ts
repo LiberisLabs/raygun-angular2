@@ -24,7 +24,7 @@ export class ErrorDetails {
   user: User;
   
   constructor(error: WrappedException) {
-    this.groupingKey = this.generateGroupingKey(error.originalException.message);
+    this.groupingKey = this.generateGroupingKey(error.message || error.originalException.message);
     this.error = new RaygunError(error);
     this.environment = new UserEnvironment();
     this.request = new Request();
