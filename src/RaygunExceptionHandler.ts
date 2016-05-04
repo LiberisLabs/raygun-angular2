@@ -1,5 +1,5 @@
-import {Inject, Injectable, forwardRef, ExceptionHandler, WrappedException} from 'angular2/core';
-import {Http, Headers} from 'angular2/http';
+import {Inject, Injectable, forwardRef, ExceptionHandler, WrappedException} from '@angular/core';
+import {Http, Headers} from '@angular/http';
 import {ErrorReport} from './raygun-angular2/ErrorReport';
 
 @Injectable()

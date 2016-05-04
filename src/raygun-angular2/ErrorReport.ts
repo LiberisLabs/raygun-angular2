@@ -1,4 +1,4 @@
-import {WrappedException} from 'angular2/core';
+import {WrappedException} from '@angular/core';
 import {ErrorDetails} from './ErrorDetails';
 
 export class ErrorReport {

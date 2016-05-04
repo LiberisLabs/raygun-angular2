@@ -1,4 +1,4 @@
-import {WrappedException} from 'angular2/core';
+import {WrappedException} from '@angular/core';
 import {StackTrace as RaygunStackTrace} from './StackTrace';
 import * as StackTrace from 'stack-trace';
 

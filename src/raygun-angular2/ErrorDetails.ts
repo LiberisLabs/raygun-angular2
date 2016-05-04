@@ -1,4 +1,4 @@
-import {WrappedException} from 'angular2/core';
+import {WrappedException} from '@angular/core';
 import {RaygunExceptionHandler} from '../RaygunExceptionHandler';
 import {RaygunError} from './RaygunError';
 import {UserEnvironment} from './UserEnvironment';
