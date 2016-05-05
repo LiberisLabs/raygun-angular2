@@ -24,10 +24,15 @@ export class ErrorDetails {
   user: User;
   
   constructor(error: WrappedException) {
+    var user = new User();
+    
+    user.fullName = RaygunExceptionHandler.username || '';
+    
     this.groupingKey = this.generateGroupingKey(error.message || error.originalException.message);
     this.error = new RaygunError(error);
     this.environment = new UserEnvironment();
     this.request = new Request();
+    this.user = user;
   }
   
   generateGroupingKey(input: string) {

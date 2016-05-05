@@ -6,11 +6,16 @@ import {ErrorReport} from './raygun-angular2/ErrorReport';
 export class RaygunExceptionHandler extends ExceptionHandler {
     static apiKey: string;
     static version: string;
+    static username: string = '';
     
     errorReport: ErrorReport;
     
     constructor(private http: Http) {
         super(null);
+    }
+    
+    static setUser(name: string) {
+       this.username = name;
     }
     
     call(error: WrappedException) {
