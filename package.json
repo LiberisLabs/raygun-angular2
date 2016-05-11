@@ -1,6 +1,6 @@
 {
   "name": "raygun-angular2",
-  "version": "1.0.0-beta.14",
+  "version": "1.0.0",
   "description": "Raygun integration for angular 2",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -45,7 +45,8 @@
     "zone.js": "0.6.12"
   },
   "peerDependencies": {
-    "angular2": "^2.0.0-beta.15"
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/http": "^2.0.0-rc.1"
   },
   "dependencies": {
     "stack-trace": "0.0.9"
