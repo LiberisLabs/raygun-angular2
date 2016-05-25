@@ -50,12 +50,7 @@ describe('Raygun Exception Handler', () => {
   });
 
   it('should attempt to call the Raygun API and rethrow the exception', () => {
-    try {
-      subject.call(sampleException.object);
-      assert.fail();
-    } catch (exception) {
-      assert.equal(exception, originalException);
-    }
+    assert.throws(() => subject.call(sampleException.object), Error, originalException.message);
     
     http.verify(x => x.post('https://api.raygun.io/entries?apikey=fintechfintech==', TypeMoq.It.isAny()), TypeMoq.Times.once());
   });
