@@ -1,7 +1,7 @@
 import 'reflect-metadata';
-import {WrappedException} from 'angular2/core';
+import {WrappedException} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Http, Response} from 'angular2/http';
+import {Http, Response} from '@angular/http';
 import {RaygunExceptionHandler} from '../src/RaygunExceptionHandler';
 import {assert} from 'chai';
 import {TypeMoq} from 'typemoq';
@@ -27,26 +27,35 @@ describe('Raygun Exception Handler', () => {
   var http: TypeMoq.Mock<Http> = TypeMoq.Mock.ofType(Http);
   var sampleResponse = TypeMoq.Mock.ofType(Observable);
   var sampleException: TypeMoq.Mock<WrappedException> = TypeMoq.Mock.ofType(WrappedException);
-  
-  http.setup(x => x.post(TypeMoq.It.isAny(), TypeMoq.It.isAny()))
+  var originalException = new Error('fintech');
+
+  http
+    .setup(x => x.post(TypeMoq.It.isAny(), TypeMoq.It.isAny()))
     .returns(() => sampleResponse.object);
-    
-  sampleException.setup(x => x.originalException)
-    .returns(() => new Error('fintech'));
-  
+
+  sampleException
+    .setup(x => x.originalException)
+    .returns(() => originalException);
+
   beforeEach(() => {
     RaygunExceptionHandler.apiKey = 'fintechfintech==';
     RaygunExceptionHandler.version = '1.0.0';
-    
+
     subject = new RaygunExceptionHandler(http.object);
   });
-  
+
   it('should exist', () => {
     assert.ok(RaygunExceptionHandler);
   });
-  
-  it('should attempt to call the Raygun API', () => {
-    subject.call(sampleException.object);
+
+  it('should attempt to call the Raygun API and rethrow the exception', () => {
+    try {
+      subject.call(sampleException.object);
+      assert.fail();
+    } catch (exception) {
+      assert.equal(exception, originalException);
+    }
+    
     http.verify(x => x.post('https://api.raygun.io/entries?apikey=fintechfintech==', TypeMoq.It.isAny()), TypeMoq.Times.once());
   });
 });

@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import * as sinon from 'sinon';
 import {assert} from 'chai';
-import {WrappedException} from 'angular2/core';
+import {WrappedException} from '@angular/core';
 import {TypeMoq as TM} from 'typemoq';
 import {ErrorReport} from '../src/raygun-angular2/ErrorReport';
 

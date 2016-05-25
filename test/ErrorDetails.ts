@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {WrappedException} from 'angular2/core';
+import {WrappedException} from '@angular/core';
 import {TypeMoq as TM} from 'typemoq';
 import {ErrorDetails} from '../src/raygun-angular2/ErrorDetails';
 import {assert} from 'chai';
