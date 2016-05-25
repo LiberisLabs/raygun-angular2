@@ -59,3 +59,42 @@ describe('Raygun Exception Handler', () => {
     http.verify(x => x.post('https://api.raygun.io/entries?apikey=fintechfintech==', TypeMoq.It.isAny()), TypeMoq.Times.once());
   });
 });
+
+describe('Raygun Exception Handler in noop mode', () => {
+  var subject: RaygunExceptionHandler;
+  var http: TypeMoq.Mock<Http> = TypeMoq.Mock.ofType(Http);
+  var sampleResponse = TypeMoq.Mock.ofType(Observable);
+  var sampleException: TypeMoq.Mock<WrappedException> = TypeMoq.Mock.ofType(WrappedException);
+  var originalException = new Error('fintech');
+
+  http
+    .setup(x => x.post(TypeMoq.It.isAny(), TypeMoq.It.isAny()))
+    .returns(() => sampleResponse.object);
+
+  sampleException
+    .setup(x => x.originalException)
+    .returns(() => originalException);
+
+  beforeEach(() => {
+    RaygunExceptionHandler.apiKey = 'fintechfintech==';
+    RaygunExceptionHandler.version = '1.0.0';
+    RaygunExceptionHandler.noop = true;
+
+    subject = new RaygunExceptionHandler(http.object);
+  });
+
+  it('should exist', () => {
+    assert.ok(RaygunExceptionHandler);
+  });
+
+  it('should not attempt to call the Raygun API but does rethrow the exception', () => {
+    try {
+      subject.call(sampleException.object);
+      assert.fail();
+    } catch (exception) {
+      assert.equal(exception, originalException);
+    }
+    
+    http.verify(x => x.post(TypeMoq.It.isAny(), TypeMoq.It.isAny()), TypeMoq.Times.never());
+  });
+});
