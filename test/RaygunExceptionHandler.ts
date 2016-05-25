@@ -17,7 +17,8 @@ global['screen'] = {
 };
 global['window'] = {
   location: {
-    search: '?foo=bar'
+    search: '?foo=bar',
+    origin: 'mycoolhostname'
   }
 };
 global['document'] = {};
@@ -60,7 +61,7 @@ describe('Raygun Exception Handler', () => {
   });
 });
 
-describe('Raygun Exception Handler in noop mode', () => {
+describe('Raygun Exception Handler when on development URL', () => {
   var subject: RaygunExceptionHandler;
   var http: TypeMoq.Mock<Http> = TypeMoq.Mock.ofType(Http);
   var sampleResponse = TypeMoq.Mock.ofType(Observable);
@@ -78,7 +79,7 @@ describe('Raygun Exception Handler in noop mode', () => {
   beforeEach(() => {
     RaygunExceptionHandler.apiKey = 'fintechfintech==';
     RaygunExceptionHandler.version = '1.0.0';
-    RaygunExceptionHandler.noop = true;
+    RaygunExceptionHandler.setDevelopmentHostnames([global['window'].location.origin]);
 
     subject = new RaygunExceptionHandler(http.object);
   });
