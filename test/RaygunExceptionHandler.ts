@@ -88,12 +88,7 @@ describe('Raygun Exception Handler in noop mode', () => {
   });
 
   it('should not attempt to call the Raygun API but does rethrow the exception', () => {
-    try {
-      subject.call(sampleException.object);
-      assert.fail();
-    } catch (exception) {
-      assert.equal(exception, originalException);
-    }
+    assert.throws(() => subject.call(sampleException.object), Error, originalException.message);
     
     http.verify(x => x.post(TypeMoq.It.isAny(), TypeMoq.It.isAny()), TypeMoq.Times.never());
   });
