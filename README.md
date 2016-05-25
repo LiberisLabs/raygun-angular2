@@ -33,17 +33,17 @@ add the following to your `System.config`:
 ```
 
 # Usage
-raygun-angular2 has a dependency on angular2/http so ensure that
+raygun-angular2 has a dependency on `@angular/http` so ensure that
 the bundle is loaded and the provider is bootstrapped in to your
 application
 
 ```js
-import {bootstrap} from 'angular2/platform/browser';
-import {provide, ExceptionHandler} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {bootstrap} from '@angular/platform-browser';
+import {provide, ExceptionHandler} from '@angular/core';
+import {HTTP_PROVIDERS} from '@angular/http';
 import {RaygunExceptionHandler} from 'raygun-angular2';
 import {AppComponent} from './appComponent';
-import {ROUTER_PROVIDERS} from 'angular2/router';
+import {ROUTER_PROVIDERS} from '@angular/router';
 
 RaygunExceptionHandler.apiKey = 'Enter API Key here';
 
@@ -52,6 +52,15 @@ bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   provide(ExceptionHandler, {useClass: RaygunExceptionHandler})
 ]);
+```
+
+### Development Environments
+
+To prevent errors being reported to Raygun during development 
+use `setDevelopmentHostnames` to blacklist your local hostnames.
+
+```js
+RaygunExceptionHandler.setDevelopmentHostnames(['localhost']);
 ```
 
 # Still To Do
